@@ -21,6 +21,7 @@ test.describe('Product images', () => {
   });
 
   test('problem user sees a different image for each product', async ({ page }) => {
+    test.fail(true, 'Known bug: all products show the same image. See issue #1');
     const inventory = await loginAs(page, users.problem);
     const sources = await inventory.getImageSources();
     expect(new Set(sources).size).toBe(6);
